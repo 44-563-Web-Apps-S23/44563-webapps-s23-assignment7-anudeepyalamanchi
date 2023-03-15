@@ -9,7 +9,7 @@
              }
 
              .flex-container > div {  /*div children of the flex container*/
-              background-color: lightblue; 
+              background-color: orange; 
               margin: 10px;  padding: 20px;  font-size: 30px;
               }
               /* Responsive layout */
@@ -21,7 +21,7 @@
 	         }
              .btn{
                 box-sizing: 100px;
-                color: azure;
+                color: blueviolet;
                 background-color: rgb(red, green, blue);
                 padding: 2px 2px;
                 margin: 2px;
@@ -44,23 +44,53 @@
 		  <div class="delayQ">row item 3</div>  
 		</div>
 	
-	<p> Press the button to create an new element of type div and then add it to the container.
-		</p>
-		<button onclick="makeNewDiv()">Add one</button>
-	
+	 <p> Press the button mf and create an new element of type div and then add it to the container.
+     </p>
+		<button class = "btn" onclick="makeNewDiv()">Add Value</button>
+        <br>
+          <input class="btn" type="button" value="Get" onclick="get()">
+          <input class="btn" type="button" value="Delay" onclick="delay()">
+
+         <script>
+            function makeNewDiv(){
+                /* make the div and its text */
+                let element = document.createElement("div")
+                let newElement = document.getElementById("input").value
+                element.innerHTML = newElement
+                element.className = "delayQ"
+                element.style.color = "black"
+        
+                /* add it to the container */
+                let container = document.getElementById('target')
+                container.appendChild(element)
+                
+            }
+            function get(){
+                let queueItems = document.getElementsByClassName("delayQ")
+                console.log(queueItems)
+                let length_elements = queueItems.length
+                if (length_elements>0){
+                    queueItems[length_elements-1].remove()
+                }
+            }
+            function delay(){
+                let queueItems = document.getElementsByClassName("delayQ")
+                let length_elements = queueItems.length
+                if(length_elements==0 || length_elements==1){
+                    console.log("Not enough elements to delay")
+                }
+                else{
+                    let removedItem = queueItems[length_elements-1]
+                    queueItems[length_elements-1].remove()
+                    console.log(removedItem)
+                    let container_div = Document.getElementById("target")
+                    container_div.insertBefore(removedItem,container_div.firstChild)
+                }
+            }
+           
+        </script>
+
 	
 </body>
-<script>
-	function makeNewDiv(){
-		/* make the div and its text */
-		let element = document.createElement("div")
-		element.innerHTML = "an item after 3"
-		element.style.color = "orange"
 
-		/* add it to the container */
-		let container = document.getElementById('target')
-		container.appendChild(element)
-		
-	}
-</script>
 </html>	
