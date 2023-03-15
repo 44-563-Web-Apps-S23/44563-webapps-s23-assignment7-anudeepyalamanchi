@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+     <head>
+        <title>DELAYQ QUEUE</title>
+        <style>
+             .flex-container {
+              display: flex;  flex-direction:row;
+              background-color: yellow;
+             }
+
+             .flex-container > div {  /*div children of the flex container*/
+              background-color: lightblue; 
+              margin: 10px;  padding: 20px;  font-size: 30px;
+              }
+              /* Responsive layout */
+              @media (max-width: 600px) { 
+	          .flex-container{
+		       flex-direction:column;
+		       background-color: pink;
+	           }
+	         }
+             .btn{
+                box-sizing: 100px;
+                color: azure;
+                background-color: rgb(red, green, blue);
+                padding: 2px 2px;
+                margin: 2px;
+                height: 40px;
+                border: 3px solid black;
+                border-radius: 10px;
+             }
+        </style>
+     </head>
+
+
+
+<body>
+    <h2>Yalamanchi Naga Anudeep builds a deaying queue</h2>
+       <label for="input">Enter the name of item here: </label>
+       <input type ="text" id="input">
+		<div class="flex-container" id="target">
+		  <div class="delayQ">row item 1</div>   
+		  <div class="delayQ">row item 2</div>  
+		  <div class="delayQ">row item 3</div>  
+		</div>
+	
+	<p> Press the button to create an new element of type div and then add it to the container.
+		</p>
+		<button onclick="makeNewDiv()">Add one</button>
+	
+	
+</body>
+<script>
+	function makeNewDiv(){
+		/* make the div and its text */
+		let element = document.createElement("div")
+		element.innerHTML = "an item after 3"
+		element.style.color = "orange"
+
+		/* add it to the container */
+		let container = document.getElementById('target')
+		container.appendChild(element)
+		
+	}
+</script>
+</html>	
