@@ -71,7 +71,7 @@
                 console.log(queueItems)
                 let length_elements = queueItems.length
                 if (length_elements>0){
-                    queueItems[length_elements-1].remove()
+                    queueItems[0].remove()
                 }
             }
             function delay(){
@@ -84,7 +84,7 @@
                     let removedItem = queueItems[length_elements-1]
                     queueItems[length_elements-1].remove()
                     console.log(removedItem)
-                    let container_div = Document.getElementById("target")
+                    let container_div = document.getElementById("target")
                     container_div.insertBefore(removedItem,container_div.firstChild)
                 }
             }
